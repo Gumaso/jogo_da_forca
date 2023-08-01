@@ -1,6 +1,31 @@
 import datetime
-def draw_head():
-    print("""
+def draw_forca(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
+      ________
+    |/      |
+    |
+    |
+    |
+    |
+    |
+   _| {"_"*len(palavra)}
+   """)
+def draw_head(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
+      ________
+    |/      |
+    |      ( )
+    |
+    |
+    |
+    |
+   _|{"_"*len(palavra)}
+   """)
+def draw_mouth(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -8,10 +33,11 @@ def draw_head():
     |
     |
     |
-   _|___
+   _|{"_"*len(palavra)}
    """)
-def draw_neck():
-    print("""
+def draw_neck(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -19,10 +45,11 @@ def draw_neck():
     |
     |
     |
-   _|___
+   _|{"_"*len(palavra)}
     """)
-def draw_body():
-    print("""
+def draw_body(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -30,10 +57,11 @@ def draw_body():
     |       |
     |
     |
-   _|___
+   _|{"_"*len(palavra)}
    """)
-def draw_right_arm():
-    print("""
+def draw_right_arm(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -41,9 +69,11 @@ def draw_right_arm():
     |       |
     |
     |
-   _|___""")
-def draw_left_arm():
-    print("""
+   _|{"_"*len(palavra)}
+   """)
+def draw_left_arm(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -51,9 +81,11 @@ def draw_left_arm():
     |       |
     |
     |
-   _|___""")
-def draw_right_leg():
-    print("""
+   _|{"_"*len(palavra)}
+   """)
+def draw_right_leg(palavra):
+    print(F"    {len(palavra)} - LETRAS")
+    print(f"""
       ________
     |/      |
     |      (_)
@@ -61,10 +93,11 @@ def draw_right_leg():
     |       |
     |      /
     |
-   _|___""")
-def draw_left_leg():
+   _|{"_"*len(palavra)}
+   """)
+def draw_left_leg(palavra):
     data_atual = datetime.datetime.now().strftime("%d/%m/%Y")
-
+    print(F"    {len(palavra)} - LETRAS")
     print(f"""
       ________
     |/      |
@@ -73,9 +106,5 @@ def draw_left_leg():
     |       |
     |      / \\
     |   MORTO ({data_atual})
-   _|___""")
-
-
-
-
-
+   _|{"_"*len(palavra)}
+""")
