@@ -1,110 +1,201 @@
 import datetime
-def draw_forca(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |
-    |
-    |
-    |
-    |
-   _| {"_"*len(palavra)}
-   """)
-def draw_head(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      ( )
-    |
-    |
-    |
-    |
-   _|{"_"*len(palavra)}
-   """)
-def draw_mouth(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |
-    |
-    |
-    |
-   _|{"_"*len(palavra)}
-   """)
-def draw_neck(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |       |
-    |
-    |
-    |
-   _|{"_"*len(palavra)}
+def forca_acertou(soma, funcao, letra):
+    if soma == 0:
+        print(f"""
+                    Contém a letra ({letra})
+                      ________
+                    |/      |
+                    |      
+                    |
+                    |
+                    |
+                    |
+                   _|{funcao}
+                   """)
+    elif soma == 1:
+        print(f"""
+       ________
+     |/      |
+     |     (   )
+     |
+     |
+     |
+     |
+    _|{funcao}
     """)
-def draw_body(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
+    elif soma == 2:
+        print(f"""
       ________
     |/      |
-    |      (_)
-    |       |
-    |       |
+    |     (o-o)
     |
     |
-   _|{"_"*len(palavra)}
+    |
+    |
+   _|{funcao}
    """)
-def draw_right_arm(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |      \|
-    |       |
-    |
-    |
-   _|{"_"*len(palavra)}
-   """)
-def draw_left_arm(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |      \|/
-    |       |
-    |
-    |
-   _|{"_"*len(palavra)}
-   """)
-def draw_right_leg(palavra):
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |      \|/
-    |       |
-    |      /
-    |
-   _|{"_"*len(palavra)}
-   """)
-def draw_left_leg(palavra):
-    data_atual = datetime.datetime.now().strftime("%d/%m/%Y")
-    print(F"    {len(palavra)} - LETRAS")
-    print(f"""
-      ________
-    |/      |
-    |      (_)
-    |      \|/
-    |       |
-    |      / \\
-    |   MORTO ({data_atual})
-   _|{"_"*len(palavra)}
-""")
+
+    elif soma == 3:
+        print(f"""
+          ________
+        |/      |
+        |     (o-o)
+        |       |
+        |
+       _|{funcao}
+        """)
+    elif soma == 4:
+        print(f"""
+              ________
+            |/      |
+            |     (o-o)
+            |       |
+            |       |
+            |
+            |
+           _|{funcao}
+           """)
+    elif soma == 5:
+        print(f"""
+                  ________
+                |/      |
+                |     (o-o)
+                |      \|
+                |       |
+                |
+                |
+               _|{funcao}
+               """)
+    elif soma == 6:
+        print(f"""
+                      ________
+                    |/      |
+                    |     (o-o)
+                    |      \|/
+                    |       |
+                    |
+                    |
+                   _|{funcao}
+                   """)
+    elif soma == 7:
+        print(f"""
+                          ________
+                        |/      |
+                        |     (o-o)
+                        |      \|/
+                        |       |
+                        |      /
+                        |
+                       _|{funcao}
+                       """)
+
+def substituindo_letras(palavra, palavra_oculta, letra):
+    for x in range(len(palavra)):
+        if letra == palavra[x]:
+            item = {palavra[x]: x}
+            palavra_oculta[item[palavra[x]]] = palavra[x]
+    palavra_corrigida = ''.join(palavra_oculta)
+    return palavra_corrigida
+
+
+
+
+
+
+def forca(soma, funcao, letra):
+    if soma == 1:
+        print(f"""
+                     LETRA INCORRETA {letra}
+                       ________
+                     |/      |
+                     |      ( )
+                     |
+                     |
+                     |
+                     |
+                    _|{funcao}
+                    """)
+    elif soma == 2:
+        print(f"""
+        LETRA INCORRETA {letra}
+           ________
+         |/      |
+         |     (o-o)
+         |
+         |
+         |
+         |
+        _|{funcao}
+        """)
+
+    elif soma == 3:
+        print(f"""
+        LETRA INCORRETA {letra}
+           ________
+         |/      |
+         |     (o-o)
+         |       |
+         |
+        _|{funcao}
+         """)
+    elif soma == 4:
+        print(f"""
+            LETRA INCORRETA {letra}
+               ________
+             |/      |
+             |     (o-o)
+             |       |
+             |       |
+             |
+             |
+            _|{funcao}
+            """)
+    elif soma == 5:
+        print(f"""
+                LETRA INCORRETA {letra}
+                   ________
+                 |/      |
+                 |     (o-o)
+                 |      \|
+                 |       |
+                 |
+                 |
+                _|{funcao}
+                """)
+    elif soma == 6:
+        print(f"""
+                    LETRA INCORRETA {letra}
+                       ________
+                     |/      |
+                     |     (o-o)
+                     |      \|/
+                     |       |
+                     |
+                     |
+                    _|{funcao}
+                    """)
+    elif soma == 7:
+        print(f"""
+                        LETRA INCORRETA {letra}
+                           ________
+                         |/      |
+                         |     (o-o)
+                         |      \|/
+                         |       |
+                         |      /
+                         |
+                        _|{funcao}
+                        """)
+    elif soma == 8:
+        data_atual = datetime.datetime.now().strftime("%d/%m/%Y")
+        print(f"""
+                    LETRA INCORRETA {letra}
+                       ________
+                     |/      |
+                     |     (x-x)
+                     |      \|/
+                     |       |
+                     |      / \\
+                     |   MORTO ({data_atual})
+                    _|{funcao}
+                         """)

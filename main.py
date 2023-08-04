@@ -1,29 +1,21 @@
-from desenhos import (draw_head,
-                      draw_mouth,
-                      draw_neck,
-                      draw_body,
-                      draw_right_arm,
-                      draw_left_arm,
-                      draw_right_leg,
-                      draw_left_leg,
-                      draw_forca)
+from desenhos import (forca, substituindo_letras, forca_acertou)
 from random import choice
 
-frutas = ["maçã", "banana", "laranja", "uva", "abacaxi", "morango", "melancia", "pera", "manga", "kiwi"]
-verduras = ["alface", "cenoura", "tomate", "brócolis", "abóbora", "cebola", "couve", "rúcula", "espinafre", "pimentão"]
-paises = ["brasil", "estados unidos", "canadá", "méxico", "japão", "itália", "alemanha", "frança", "austrália", "egito"]
-partes_do_corpo = ["cabeça", "braço", "perna", "mão", "pé", "olho", "nariz", "orelha", "boca", "joelho"]
-eletrodomesticos = ["geladeira", "fogão", "microondas", "liquidificador", "aspirador", "centrifuga", "cafeteira",
+frutas = ["maça", "banana", "laranja", "uva", "abacaxi", "morango", "melancia", "pera", "manga", "kiwi"]
+verduras = ["alface", "cenoura", "tomate", "brocolis", "abobora", "cebola", "couve", "rucula", "espinafre", "pimentao"]
+paises = ["brasil", "estados unidos", "canada", "mexico", "japao", "italia", "alemanha", "frança", "australia", "egito"]
+partes_do_corpo = ["cabeça", "braço", "perna", "mao", "pe", "olho", "nariz", "orelha", "boca", "joelho"]
+eletrodomesticos = ["geladeira", "fogao", "microondas", "liquidificador", "aspirador", "centrifuga", "cafeteira",
                     "torradeira", "batedeira", 'mixer']
 cores = ["vermelho", "azul", "amarelo", "verde", "roxo", "laranja", "rosa", "preto", "branco", "marrom"]
-formas_geometricas = ["triângulo", "quadrado", "retângulo", "círculo", "pentágono", "hexágono", "heptágono", "octógono",
+formas_geometricas = ["triangulo", "quadrado", "retangulo", "circulo", "pentagono", "hexagono", "heptagono", "octogono",
                       "estrela", "losango"]
 print("-" * 10 + "JOGO DA FORCA" + "-" * 10)
 while True:
     jogar = int(input("""
     Menu principal:
     [0] - Sair do jogo
-    [1] - Iniciar jogo"""))
+    [1] - Iniciar jogo\n\t"""))
     if jogar == 0:
         print("Jogo encerrado!")
         break
@@ -44,57 +36,78 @@ while True:
                 print("Opção invalída!")
             elif tema == 1:
                 palavra = choice(frutas)
-                print("Palavra do tema selecionada")
-                palavra_oculta = "_" * len(palavra)
+                palavra_oculta = list("_" * len(palavra))
+                print(f"Palavra do tema selecionada {len(palavra)} - LETRAS")
+                print(f"""
+                                          ________
+                                        |/      |
+                                        |      
+                                        |
+                                        |
+                                        |
+                                        |
+                                       _|{"_" * len(palavra)}
+                                       """)
+                soma = 0
                 while True:
-                    letra = input("Digite uma letra:")
-                    if letra not in palavra:
-                        pass
+                    letra = input("Letra:").lower()
+                    retorno_funcao = substituindo_letras(palavra=palavra, palavra_oculta=palavra_oculta, letra=letra)
                     if letra in palavra:
-                        indice = palavra.index(letra)
-                        palavra_oculta[indice].replace('_', letra)
+                        forca_acertou(soma=soma, funcao=retorno_funcao, letra=letra)
+                        if palavra == retorno_funcao:
+                            print("Palavra completa")
+                            break
+                    else:
+                        soma += 1
+                        forca(funcao=retorno_funcao, soma=soma, letra=letra)
 
 
             elif tema == 2:
                 palavra = choice(verduras)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
             elif tema == 3:
                 palavra = choice(paises)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
             elif tema == 4:
                 palavra = choice(partes_do_corpo)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
             elif tema == 5:
                 palavra = choice(eletrodomesticos)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
             elif tema == 6:
                 palavra = choice(cores)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
             elif tema == 7:
                 palavra = choice(formas_geometricas)
+                palavra_oculta = "_" * len(palavra)
                 print("Palavra do tema selecionada")
                 while True:
-                    letra = input("Digite uma letra:")
+                    letra = input("Digite uma letra:").lower()
                     if letra not in palavra:
                         pass
     else:
