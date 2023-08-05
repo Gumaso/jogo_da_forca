@@ -1,8 +1,8 @@
 import datetime
-def forca_acertou(soma, funcao, letra):
+def forca_acertou(soma, funcao, letra, modificar_letra):
     if soma == 0:
         print(f"""
-                    Contém a letra ({letra})
+                    {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
                       ________
                     |/      |
                     |      
@@ -14,6 +14,7 @@ def forca_acertou(soma, funcao, letra):
                    """)
     elif soma == 1:
         print(f"""
+        {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
        ________
      |/      |
      |     (   )
@@ -25,6 +26,7 @@ def forca_acertou(soma, funcao, letra):
     """)
     elif soma == 2:
         print(f"""
+        {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
       ________
     |/      |
     |     (o-o)
@@ -37,6 +39,7 @@ def forca_acertou(soma, funcao, letra):
 
     elif soma == 3:
         print(f"""
+        {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
           ________
         |/      |
         |     (o-o)
@@ -46,6 +49,7 @@ def forca_acertou(soma, funcao, letra):
         """)
     elif soma == 4:
         print(f"""
+            {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
               ________
             |/      |
             |     (o-o)
@@ -57,6 +61,7 @@ def forca_acertou(soma, funcao, letra):
            """)
     elif soma == 5:
         print(f"""
+                {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
                   ________
                 |/      |
                 |     (o-o)
@@ -68,6 +73,7 @@ def forca_acertou(soma, funcao, letra):
                """)
     elif soma == 6:
         print(f"""
+                    {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
                       ________
                     |/      |
                     |     (o-o)
@@ -79,6 +85,7 @@ def forca_acertou(soma, funcao, letra):
                    """)
     elif soma == 7:
         print(f"""
+                        {modificar_letra.letra_CIANO}Contém a letra ({letra}){modificar_letra.limpar_cores}
                           ________
                         |/      |
                         |     (o-o)
@@ -102,13 +109,13 @@ def substituindo_letras(palavra, palavra_oculta, letra):
 
 
 
-def forca(soma, funcao, letra):
+def forca(soma, funcao):
     if soma == 1:
+        print(f'Tentativas restantes: {8-soma}')
         print(f"""
-                     LETRA INCORRETA {letra}
-                       ________
+                        ________
                      |/      |
-                     |      ( )
+                     |      (  )
                      |
                      |
                      |
@@ -116,55 +123,56 @@ def forca(soma, funcao, letra):
                     _|{funcao}
                     """)
     elif soma == 2:
+        print(f'Tentativas restantes: {8 - soma}')
         print(f"""
-        LETRA INCORRETA {letra}
-           ________
-         |/      |
-         |     (o-o)
-         |
-         |
-         |
-         |
-        _|{funcao}
+                       ________
+                     |/      |
+                     |     (o-o)
+                     |
+                     |
+                     |
+                     |
+                    _|{funcao}
         """)
 
     elif soma == 3:
         print(f"""
-        LETRA INCORRETA {letra}
-           ________
-         |/      |
-         |     (o-o)
-         |       |
-         |
-        _|{funcao}
+                       ________
+                     |/      |
+                     |     (o-o)
+                     |       |
+                     |
+                     |
+                     |
+                    _|{funcao}
          """)
     elif soma == 4:
+        print(f'Tentativas restantes: {8 - soma}')
         print(f"""
-            LETRA INCORRETA {letra}
-               ________
-             |/      |
-             |     (o-o)
-             |       |
-             |       |
-             |
-             |
-            _|{funcao}
+                       ________
+                     |/      |
+                     |     (o-o)
+                     |       |
+                     |       |
+                     |
+                     |
+                    _|{funcao}
             """)
     elif soma == 5:
+        print(f'Tentativas restantes: {8 - soma}')
         print(f"""
-                LETRA INCORRETA {letra}
-                   ________
-                 |/      |
-                 |     (o-o)
-                 |      \|
-                 |       |
-                 |
-                 |
-                _|{funcao}
+                      ________
+                    |/      |
+                    |     (o-o)
+                    |      \|
+                    |       |
+                    |
+                    |
+                    _|{funcao}
                 """)
     elif soma == 6:
+        print(f'Tentativas restantes: {8 - soma}')
         print(f"""
-                    LETRA INCORRETA {letra}
                        ________
                      |/      |
                      |     (o-o)
@@ -175,9 +183,9 @@ def forca(soma, funcao, letra):
                     _|{funcao}
                     """)
     elif soma == 7:
-        print(f"""
-                        LETRA INCORRETA {letra}
-                           ________
+        print(f'Tentativas restantes: {8 - soma}')
+        print(f"""        
+                            ________
                          |/      |
                          |     (o-o)
                          |      \|/
@@ -189,13 +197,13 @@ def forca(soma, funcao, letra):
     elif soma == 8:
         data_atual = datetime.datetime.now().strftime("%d/%m/%Y")
         print(f"""
-                    LETRA INCORRETA {letra}
+                    print(f'Tentativas restantes: {8-soma}')
                        ________
-                     |/      |
-                     |     (x-x)
-                     |      \|/
-                     |       |
-                     |      / \\
-                     |   MORTO ({data_atual})
+                    |/      |
+                    |     (x-x)
+                    |      \|/
+                    |       |
+                    |      / \\
+                    |   MORTO ({data_atual})
                     _|{funcao}
                          """)
